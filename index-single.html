@@ -5,212 +5,114 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shen - 个人主页</title>
   <link rel="stylesheet" href="css/style.css">
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-
-    section {
-      margin-top: 60px;
-    }
-
-    .section-nav {
-      background-color: #2e7d32;
-      color: white;
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .section-nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-    }
-
-    .section-nav ul li {
-      margin: 0 20px;
-    }
-
-    .section-nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      padding: 10px 20px;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-
-    .section-nav ul li a:hover {
-      background-color: #1b5e20;
-    }
-
-    .hero-section {
-      text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #66bb6a 0%, #2e7d32 100%);
-      color: white;
-      border-radius: 8px;
-      margin-bottom: 30px;
-    }
-
-    .hero-section h1 {
-      font-size: 48px;
-      margin-bottom: 20px;
-      color: white;
-    }
-
-    .hero-section p {
-      font-size: 18px;
-      opacity: 0.9;
-    }
-
-    .projects-section {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 30px;
-      margin: 20px 0;
-    }
-
-    .hobbies-section {
-      background: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 30px;
-      margin: 20px 0;
-    }
-
-    @media (max-width: 768px) {
-      .hero-section h1 {
-        font-size: 36px;
-      }
-
-      .section-nav ul {
-        flex-direction: column;
-      }
-
-      .section-nav ul li {
-        margin: 10px 0;
-      }
-
-      section {
-        margin-top: 40px;
-      }
-    }
-  </style>
 </head>
 <body>
-  <div class="section-nav">
+  <header class="navbar">
     <nav>
+      <a class="brand" href="#home">Shen</a>
       <ul>
         <li><a href="#home">首页</a></li>
         <li><a href="#projects">项目作品</a></li>
         <li><a href="#hobbies">兴趣爱好</a></li>
       </ul>
     </nav>
-  </div>
+  </header>
 
-  <div class="container">
+  <main class="container">
     <section id="home" class="hero-section">
       <h1>Shen</h1>
       <p>欢迎来到我的个人主页</p>
+      <a class="hero-link" href="https://github.com/ShenBlissard" target="_blank" rel="noopener">访问我的 GitHub</a>
     </section>
 
-    <section id="projects" class="projects-section">
+    <section id="projects" class="section-card">
       <h2>项目作品</h2>
       <div class="project-grid">
-        <div class="project-card">
-          <img src="img/projects/stars/light文件预处理raw格式原图和预览图.png" alt="星空堆栈项目" class="project-image">
+        <article class="project-card">
+          <img src="img/projects/stars/stars-raw-preview.png" alt="星空堆栈项目：light文件夹中raw格式原图的相机预览" class="project-image">
           <div class="project-content">
             <h3>opencode辅助星空堆栈</h3>
             <p>运用opencode处理lights文件，Siril进行校准+叠加+去星，StarNet去星，scipy降噪+锐化，硬件加速Screen Composite合成的完整处理流程。</p>
-            <a href="https://github.com/ShenBlissard" target="_blank" class="project-link">查看详情</a>
+            <a href="https://github.com/ShenBlissard" target="_blank" rel="noopener" class="project-link">查看详情</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
-          <img src="img/projects/vote/班级投票系统.png" alt="投票网站项目" class="project-image">
+        <article class="project-card">
+          <img src="img/projects/vote/vote-ui.png" alt="班级投票系统：发起投票界面" class="project-image">
           <div class="project-content">
             <h3>班级投票动态网页</h3>
             <p>使用opencode开发和kimi部署的班级投票系统，支持实时投票和结果展示。</p>
-            <a href="https://github.com/ShenBlissard" target="_blank" class="project-link">查看详情</a>
+            <a href="https://github.com/ShenBlissard" target="_blank" rel="noopener" class="project-link">查看详情</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
-          <img src="img/projects/stars/light文件中raw格式原图在节点上的显示.png" alt="星空堆栈项目2" class="project-image">
+        <article class="project-card">
+          <img src="img/projects/stars/stars-raw-node.png" alt="星空堆栈项目：raw格式原图在电脑上的显示" class="project-image">
           <div class="project-content">
             <h3>opencode辅助星空堆栈</h3>
             <p>处理raw格式原图，可见很多亮星和暗星，通过堆栈实现不同类型天体的识别和分类处理。</p>
-            <a href="https://github.com/ShenBlissard" target="_blank" class="project-link">查看详情</a>
+            <a href="https://github.com/ShenBlissard" target="_blank" rel="noopener" class="project-link">查看详情</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
-          <img src="img/projects/stars/运用opencode处理lights文件.jpg" alt="星空堆栈项目3" class="project-image">
+        <article class="project-card">
+          <img src="img/projects/stars/stars-final.jpg" alt="星空堆栈项目：处理完成后的银河成品图" class="project-image">
           <div class="project-content">
             <h3>opencode辅助星空堆栈</h3>
             <p>完整处理流程：Siril进行校准+叠加+去星，StarNet去星，scipy降噪+锐化，硬件加速Screen Composite合成。</p>
-            <a href="https://github.com/ShenBlissard" target="_blank" class="project-link">查看详情</a>
+            <a href="https://github.com/ShenBlissard" target="_blank" rel="noopener" class="project-link">查看详情</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
-          <img src="img/projects/vote/页面设计图.jpg" alt="投票网站项目" class="project-image">
+        <article class="project-card">
+          <img src="img/projects/vote/vote-flowchart.jpg" alt="投票网站项目：页面流程设计图" class="project-image">
           <div class="project-content">
             <h3>班级投票动态网页</h3>
             <p>页面设计包括投票题目展示、选项设置和结果展示功能，界面简洁易用。</p>
-            <a href="https://github.com/ShenBlissard" target="_blank" class="project-link">查看详情</a>
+            <a href="https://github.com/ShenBlissard" target="_blank" rel="noopener" class="project-link">查看详情</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
-          <img src="img/projects/course/文件处理完成，共完成13个课件.png" alt="课件批注项目" class="project-image">
+        <article class="project-card">
+          <img src="img/projects/course/course-folder.png" alt="课件批注项目：原版课件与生成的批注版课件文件夹截图" class="project-image">
           <div class="project-content">
             <h3>课件批注项目</h3>
             <p>完成13个课件的批注，对blackborad上的专业词汇进行中文标注和详细解释，详细解释由LLM根据ppt生成。</p>
-            <a href="https://github.com/ShenBlissard" target="_blank" class="project-link">查看详情</a>
+            <a href="https://github.com/ShenBlissard" target="_blank" rel="noopener" class="project-link">查看详情</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
-          <img src="img/projects/course/没找到专业词汇标注方法.png" alt="课件批注项目" class="project-image">
+        <article class="project-card">
+          <img src="img/projects/course/course-annotated-translation.png" alt="课件批注项目：标注版课件内页，专业词汇下方有中文翻译" class="project-image">
           <div class="project-content">
             <h3>课件批注项目</h3>
             <p>探索专业词汇标注方法，设计标注格式和工具。</p>
-            <a href="https://github.com/ShenBlissard" target="_blank" class="project-link">查看详情</a>
+            <a href="https://github.com/ShenBlissard" target="_blank" rel="noopener" class="project-link">查看详情</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
-          <img src="img/projects/course/opencode的对话框.png" alt="课件批注项目" class="project-image">
+        <article class="project-card">
+          <img src="img/projects/course/course-skill-ui.png" alt="课件批注项目：opencode界面中skill的生成与使用" class="project-image">
           <div class="project-content">
             <h3>课件批注项目</h3>
             <p>使用opencode调用skill进行批注，包含pdf-glossary-annotate等skill，完成各个功能模块的开发。</p>
-            <a href="https://github.com/ShenBlissard" target="_blank" class="project-link">查看详情</a>
+            <a href="https://github.com/ShenBlissard" target="_blank" rel="noopener" class="project-link">查看详情</a>
           </div>
-        </div>
+        </article>
 
-        <div class="project-card">
-          <img src="img/projects/course/另一个课件页面，具体专业词汇中的手绘解释.png" alt="课件批注项目" class="project-image">
+        <article class="project-card">
+          <img src="img/projects/course/course-annotated-explain.png" alt="课件批注项目：点击专业词汇后跳出中文解释的批注版课件内页" class="project-image">
           <div class="project-content">
             <h3>课件批注项目</h3>
             <p>课件页面标注专业词汇，提供详细的手绘解释和参考。</p>
-            <a href="https://github.com/ShenBlissard" target="_blank" class="project-link">查看详情</a>
+            <a href="https://github.com/ShenBlissard" target="_blank" rel="noopener" class="project-link">查看详情</a>
           </div>
-        </div>
+        </article>
       </div>
     </section>
 
-    <section id="hobbies" class="hobbies-section">
+    <section id="hobbies" class="section-card">
       <h2>兴趣爱好</h2>
-
       <div class="hobby-grid">
         <div class="hobby-item">
           <h3>利用opencode做小项目</h3>
@@ -237,16 +139,11 @@
           <p>喜欢观察和饲养各种动植物，了解自然生态和生命之美。</p>
         </div>
       </div>
-
-      <div style="text-align: center; margin-top: 30px;">
-        <h3>了解更多关于我的项目</h3>
-        <p>访问项目作品页面查看更多详情</p>
-      </div>
     </section>
-  </div>
+  </main>
 
   <footer>
-    <p>© 2024 Shen. All rights reserved.</p>
+    <p>© 2026 Shen · <a href="https://github.com/ShenBlissard/profile" target="_blank" rel="noopener">本站源码</a></p>
   </footer>
 </body>
 </html>
