@@ -1,0 +1,20 @@
+# Windows 系统文件
+Thumbs.db
+Desktop.ini
+desktop.ini
+$RECYCLE.BIN/
+
+# 临时文件
+~$*
+*.tmp
+*.bak
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# 编辑器/工具
+.vscode/
+.idea/
