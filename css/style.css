@@ -115,28 +115,8 @@ section {
 
 .hero-section p {
   font-size: 18px;
-  margin: 0 0 24px;
+  margin: 0;
   opacity: 0.92;
-}
-
-.hero-link {
-  display: inline-block;
-  padding: 10px 24px;
-  border: 1.5px solid rgba(255, 255, 255, 0.85);
-  border-radius: 999px;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 15px;
-  transition: background-color 0.2s ease;
-}
-
-.hero-link:hover {
-  background-color: rgba(255, 255, 255, 0.16);
-}
-
-.hero-link:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 3px;
 }
 
 /* ---------- 章节 ---------- */
@@ -148,7 +128,7 @@ section {
   margin-top: 32px;
 }
 
-.section-card h2 {
+.section-card > h2 {
   margin: 0 0 28px;
   padding-bottom: 12px;
   font-size: 26px;
@@ -156,76 +136,111 @@ section {
   border-bottom: 2px solid var(--green-100);
 }
 
-/* ---------- 项目卡片 ---------- */
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.project-card {
-  background: var(--card);
+/* ---------- 项目分栏 ---------- */
+.project-group {
   border: 1px solid #e6efe9;
   border-radius: var(--radius);
-  overflow: hidden;
+  padding: 28px;
+  margin-bottom: 28px;
+}
+
+.project-group:last-child {
+  margin-bottom: 0;
+}
+
+.project-group > h3 {
+  margin: 0 0 6px;
+  font-size: 21px;
+  color: var(--green-900);
+}
+
+.project-tags {
+  margin: 0 0 18px;
   display: flex;
-  flex-direction: column;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.project-card:hover,
-.project-card:focus-within {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-hover);
+.project-tags span {
+  background: var(--green-100);
+  color: var(--green-900);
+  font-size: 12.5px;
+  padding: 3px 12px;
+  border-radius: 999px;
 }
 
-.project-image {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  background-color: #e8f0ea;
-  display: block;
+.proj-row {
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px dashed #e0ebe4;
+  font-size: 15px;
 }
 
-.project-content {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.project-content h3 {
-  margin: 0 0 8px;
-  font-size: 18px;
+.proj-row .label {
+  font-weight: 700;
   color: var(--green-700);
+  white-space: nowrap;
 }
 
-.project-content p {
-  margin: 0 0 16px;
-  font-size: 14.5px;
-  color: var(--text-muted);
-  flex: 1;
+.proj-row p {
+  margin: 0;
+  color: var(--text);
 }
 
-.project-link {
-  align-self: flex-start;
-  display: inline-block;
-  padding: 8px 18px;
-  background-color: var(--green-700);
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 14px;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
+.proj-row a {
+  color: var(--green-500);
+  word-break: break-all;
 }
 
-.project-link:hover {
-  background-color: var(--green-900);
+.proj-row a:hover {
+  text-decoration: underline;
 }
 
-.project-link:focus-visible {
+/* ---------- 图片成果展示 ---------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.gallery figure {
+  margin: 0;
+}
+
+.gallery a {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #eef4f0;
+  border: 1px solid #e0ebe4;
+}
+
+.gallery a:focus-visible {
   outline: 2px solid var(--green-500);
   outline-offset: 2px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 190px;
+  object-fit: contain;
+  display: block;
+  background: #eef4f0;
+  transition: transform 0.25s ease;
+}
+
+.gallery a:hover img {
+  transform: scale(1.03);
+}
+
+.gallery figcaption {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  padding: 8px 2px 0;
+  line-height: 1.5;
 }
 
 /* ---------- 兴趣爱好 ---------- */
@@ -291,6 +306,15 @@ footer a:hover {
   .section-card {
     padding: 28px 20px;
   }
+
+  .project-group {
+    padding: 20px;
+  }
+
+  .proj-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
 }
 
 /* ---------- 减弱动效 ---------- */
@@ -299,11 +323,9 @@ footer a:hover {
     scroll-behavior: auto;
   }
 
-  .project-card,
   .hobby-item,
-  .navbar ul li a,
-  .project-link,
-  .hero-link {
+  .gallery img,
+  .navbar ul li a {
     transition: none;
   }
 }
