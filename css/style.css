@@ -260,9 +260,12 @@ section {
 /* ---------- 兴趣爱好 ---------- */
 .hobby-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, 230px);
-  justify-content: center;
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+}
+
+.hobby-wide {
+  grid-column: 1 / -1;
 }
 
 .hobby-item {
@@ -331,6 +334,10 @@ footer a:hover {
   .proj-row {
     grid-template-columns: 1fr;
     gap: 2px;
+  }
+
+  .hobby-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
