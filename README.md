@@ -6,14 +6,11 @@
 
 ```
 ├── index.html          # 首页
-├── index-single.html   # 单文件版本
 ├── css/
-│   └── style.css       # 样式文件（绿色系简洁现代风格）
-├── img/
-│   └── projects/       # 项目图片（stars / vote / course）
-├── 课件批注/            # 课件批注项目文件
-├── 投票网站/            # 班级投票网站项目
-└── 星空堆栈/            # 星空堆栈项目文件
+│   └── style.css       # 样式文件（暖金色调，匹配首页背景图）
+└── img/
+    ├── hero-bg.jpg     # 首页横幅背景图
+    └── projects/       # 项目图片（stars / vote / course，已压缩优化）
 ```
 
 ## 本地测试
@@ -31,30 +28,27 @@
    - 选择 Public（公开）
    - 点击 "Create repository"
 
-3. **上传文件**
-   - 在仓库页面，点击 "uploading an existing file"
-   - 拖拽 `html` 文件夹到上传区域
-   - 点击 "Commit changes"
+3. **推送代码**
+   - 使用 Git 将仓库内容提交并推送到 GitHub（`git add -A`、`git commit`、`git push`）
 
 4. **启用GitHub Pages**
    - 进入仓库 Settings 页面
    - 左侧导航找到 "Pages"
    - 在 "Source" 下选择 "Deploy from a branch"
-   - 在 "Branch" 下选择 `main` (或 `master`) 和 `/ (root)`
+   - 在 "Branch" 下选择 `main` 和 `/ (root)`
    - 点击 "Save"
 
 5. **访问你的网页**
    - 等待1-2分钟
-   - 访问 https://<你的用户名>.github.io/<仓库名>/
-   - 例如: https://ShenBlissard.github.io/shen-profile/
+   - 访问 https://shenblissard.github.io/profile/
 
 ## 项目详情
 
 ### 项目作品
 1. **opencode辅助星空堆栈** - 运用opencode处理lights文件，完成天体摄影堆栈处理
-2. **自我介绍静态网页** - 当前项目，使用opencode开发并部署
-3. **班级投票动态网页** - opencode开发 + kimi部署的班级投票系统
-4. **课件批注项目** - 使用opencode对课件中的专业词汇进行标注和详细解释
+2. **班级投票动态网页** - opencode开发 + kimi部署的班级投票系统（https://vote.kimi.site）
+3. **课件批注项目** - 使用opencode对课件中的专业词汇进行标注和详细解释
+4. **自我介绍静态网页** - 当前项目，使用opencode开发并部署
 
 ### 兴趣爱好
 - 利用opencode做小项目
