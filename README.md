@@ -5,16 +5,15 @@
 ## 项目结构
 
 ```
-html/
 ├── index.html          # 首页
-├── projects.html       # 项目作品页
-├── hobbies.html        # 兴趣爱好页
+├── index-single.html   # 单文件版本
 ├── css/
 │   └── style.css       # 样式文件（绿色系简洁现代风格）
-└── img/
-    └── projects/
-        ├── stars/      # 星空堆栈项目图片
-        └── vote/       # 投票网站项目图片
+├── img/
+│   └── projects/       # 项目图片（stars / vote / course）
+├── 课件批注/            # 课件批注项目文件
+├── 投票网站/            # 班级投票网站项目
+└── 星空堆栈/            # 星空堆栈项目文件
 ```
 
 ## 本地测试
