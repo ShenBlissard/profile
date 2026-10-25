@@ -470,6 +470,10 @@ footer a:hover {
   article.project-group {
     scroll-margin-top: 104px;
   }
+
+  .hobby-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 640px) {
@@ -495,8 +499,12 @@ footer a:hover {
     gap: 2px;
   }
 
-  .hobby-grid {
+  .gallery {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery img {
+    height: 150px;
   }
 }
 

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shen - 个人主页</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" as="image" href="img/hero-bg.jpg" fetchpriority="high">
 </head>
 <body>
   <header class="topbar">
@@ -60,10 +61,10 @@
           <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p1.diff">raw原图中可以看出有很多杂乱的噪声信号，亮星暗星混杂，直接处理效果很差；单张成品tif文件高达121MB，超出GitHub单文件100MB的限制。</p></div>
           <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p1.solve">通过分类拍摄的校准帧进行堆栈叠加，有效抑制了噪声；将成品tif压缩为高质量jpg后再纳入版本管理。</p></div>
           <div class="gallery">
-            <figure><a href="img/projects/stars/stars-raw-preview.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-raw-preview.jpg" alt="light文件夹中raw格式原图的相机预览图" data-i18n-alt="p1.cap1" loading="lazy"></a><figcaption data-i18n="p1.cap1">light文件夹中raw格式原图的相机预览</figcaption></figure>
-            <figure><a href="img/projects/stars/stars-raw-node.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-raw-node.jpg" alt="raw格式原图在电脑上的显示，可以看出有很多杂乱的信号" data-i18n-alt="p1.cap2" loading="lazy"></a><figcaption data-i18n="p1.cap2">raw原图在电脑上的显示（可见大量杂乱信号）</figcaption></figure>
-            <figure><a href="img/projects/stars/stars-source-folders.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-source-folders.jpg" alt="包含初始照片数据的四个文件夹：lights放初始照片，其余三个存放不同类型的噪声校准帧" data-i18n-alt="p1.cap3" loading="lazy"></a><figcaption data-i18n="p1.cap3">初始数据分四个文件夹：lights存初始照片，其余存各类噪声校准帧</figcaption></figure>
-            <figure><a href="img/projects/stars/stars-final.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-final.jpg" alt="最终成品图像：经过校准、叠加、拉伸、去星、降噪锐化与合成后，银河清晰可见" data-i18n-alt="p1.cap4" loading="lazy"></a><figcaption data-i18n="p1.cap4">最终成品图像：银河清晰可见</figcaption></figure>
+            <figure><a href="img/projects/stars/stars-raw-preview.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-raw-preview-thumb.jpg" alt="light文件夹中raw格式原图的相机预览图" data-i18n-alt="p1.cap1" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap1">light文件夹中raw格式原图的相机预览</figcaption></figure>
+            <figure><a href="img/projects/stars/stars-raw-node.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-raw-node-thumb.jpg" alt="raw格式原图在电脑上的显示，可以看出有很多杂乱的信号" data-i18n-alt="p1.cap2" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap2">raw原图在电脑上的显示（可见大量杂乱信号）</figcaption></figure>
+            <figure><a href="img/projects/stars/stars-source-folders.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-source-folders.jpg" alt="包含初始照片数据的四个文件夹：lights放初始照片，其余三个存放不同类型的噪声校准帧" data-i18n-alt="p1.cap3" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap3">初始数据分四个文件夹：lights存初始照片，其余存各类噪声校准帧</figcaption></figure>
+            <figure><a href="img/projects/stars/stars-final.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-final-thumb.jpg" alt="最终成品图像：经过校准、叠加、拉伸、去星、降噪锐化与合成后，银河清晰可见" data-i18n-alt="p1.cap4" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap4">最终成品图像：银河清晰可见</figcaption></figure>
           </div>
         </article>
 
@@ -75,8 +76,8 @@
           <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p2.diff">动态网页涉及多个页面与状态跳转，直接动手写代码容易理不清结构。</p></div>
           <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p2.solve">先用流程图把页面结构与跳转关系画清楚，再按模块逐个实现功能，开发效率和完成度都有保障。</p></div>
           <div class="gallery">
-            <figure><a href="img/projects/vote/vote-ui.jpg" target="_blank" rel="noopener"><img src="img/projects/vote/vote-ui.jpg" alt="班级投票系统发起投票界面" data-i18n-alt="p2.cap1" loading="lazy"></a><figcaption data-i18n="p2.cap1">发起投票界面</figcaption></figure>
-            <figure><a href="img/projects/vote/vote-flowchart.jpg" target="_blank" rel="noopener"><img src="img/projects/vote/vote-flowchart.jpg" alt="网页大致流程图：简要写了网页要显示什么，点哪里会跳转哪里，有什么功能" data-i18n-alt="p2.cap2" loading="lazy"></a><figcaption data-i18n="p2.cap2">网页流程设计图：显示内容、跳转位置与功能规划</figcaption></figure>
+            <figure><a href="img/projects/vote/vote-ui.jpg" target="_blank" rel="noopener"><img src="img/projects/vote/vote-ui-thumb.jpg" alt="班级投票系统发起投票界面" data-i18n-alt="p2.cap1" loading="lazy" decoding="async"></a><figcaption data-i18n="p2.cap1">发起投票界面</figcaption></figure>
+            <figure><a href="img/projects/vote/vote-flowchart.jpg" target="_blank" rel="noopener"><img src="img/projects/vote/vote-flowchart-thumb.jpg" alt="网页大致流程图：简要写了网页要显示什么，点哪里会跳转哪里，有什么功能" data-i18n-alt="p2.cap2" loading="lazy" decoding="async"></a><figcaption data-i18n="p2.cap2">网页流程设计图：显示内容、跳转位置与功能规划</figcaption></figure>
           </div>
         </article>
 
@@ -88,10 +89,10 @@
           <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p3.diff">最初没找到合适的专业词汇标注方法；大模型在提取ppt中的专业名词时精度不足。</p></div>
           <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p3.solve">自行设计标注格式并封装成skill，每次生成批注后都让大模型总结经验持续完善skill；同时改了好几版参考词汇表，有参照之后专业名词的提取明显更精准。</p></div>
           <div class="gallery">
-            <figure><a href="img/projects/course/course-folder.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-folder.jpg" alt="文件夹截图：上面是从blackboard保存的原版课件，下面是用opencode生成的批注版课件网页文件" data-i18n-alt="p3.cap1" loading="lazy"></a><figcaption data-i18n="p3.cap1">文件夹截图：原版课件与生成的批注版课件</figcaption></figure>
-            <figure><a href="img/projects/course/course-annotated-translation-demo.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-annotated-translation-demo.jpg" alt="标注效果示意图：专业词汇下方显示中文翻译" data-i18n-alt="p3.cap2" loading="lazy"></a><figcaption data-i18n="p3.cap2">标注效果示意：专业词汇下方显示中文翻译</figcaption></figure>
-            <figure><a href="img/projects/course/course-skill-ui.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-skill-ui.jpg" alt="opencode界面：skill的生成与使用" data-i18n-alt="p3.cap3" loading="lazy"></a><figcaption data-i18n="p3.cap3">opencode界面：skill的生成与使用</figcaption></figure>
-            <figure><a href="img/projects/course/course-annotated-explain-demo.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-annotated-explain-demo.jpg" alt="标注效果示意图：点击专业词汇后屏幕中央弹出中文解释" data-i18n-alt="p3.cap4" loading="lazy"></a><figcaption data-i18n="p3.cap4">标注效果示意：点击专业词汇后屏幕中央弹出中文解释</figcaption></figure>
+            <figure><a href="img/projects/course/course-folder.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-folder.jpg" alt="文件夹截图：上面是从blackboard保存的原版课件，下面是用opencode生成的批注版课件网页文件" data-i18n-alt="p3.cap1" loading="lazy" decoding="async"></a><figcaption data-i18n="p3.cap1">文件夹截图：原版课件与生成的批注版课件</figcaption></figure>
+            <figure><a href="img/projects/course/course-annotated-translation-demo.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-annotated-translation-demo-thumb.jpg" alt="标注效果示意图：专业词汇下方显示中文翻译" data-i18n-alt="p3.cap2" loading="lazy" decoding="async"></a><figcaption data-i18n="p3.cap2">标注效果示意：专业词汇下方显示中文翻译</figcaption></figure>
+            <figure><a href="img/projects/course/course-skill-ui.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-skill-ui-thumb.jpg" alt="opencode界面：skill的生成与使用" data-i18n-alt="p3.cap3" loading="lazy" decoding="async"></a><figcaption data-i18n="p3.cap3">opencode界面：skill的生成与使用</figcaption></figure>
+            <figure><a href="img/projects/course/course-annotated-explain-demo.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-annotated-explain-demo-thumb.jpg" alt="标注效果示意图：点击专业词汇后屏幕中央弹出中文解释" data-i18n-alt="p3.cap4" loading="lazy" decoding="async"></a><figcaption data-i18n="p3.cap4">标注效果示意：点击专业词汇后屏幕中央弹出中文解释</figcaption></figure>
           </div>
         </article>
 
@@ -99,9 +100,9 @@
           <h3 data-i18n="p4.title">4. 自我介绍静态网页</h3>
           <div class="project-tags"><span data-i18n="tag.dev">opencode开发</span><span data-i18n="tag.deploy-gh">GitHub部署</span><span>HTML/CSS</span></div>
           <div class="proj-row"><span class="label" data-i18n="lbl.result">项目成果</span><p><span data-i18n="p4.result.pre">你现在看到的这个网站，在线访问：</span><a href="https://shenblissard.github.io/profile/" target="_blank" rel="noopener">https://shenblissard.github.io/profile/</a></p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.did">我做了什么</span><p data-i18n="p4.did">用opencode开发HTML/CSS静态页面，从零配置Git与SSH密钥，将项目推送到GitHub并启用GitHub Pages完成部署。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.did">我做了什么</span><p data-i18n="p4.did">用opencode开发HTML/CSS/JS静态页面（含中英双语切换与目录滚动高亮），从零配置Git与SSH密钥，将项目推送到GitHub并启用GitHub Pages完成部署。</p></div>
           <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p4.diff">初版布局混乱（侧边栏挤压页脚、样式冲突）；图片引用路径与实际文件不符导致全部无法显示；一个长达547字节的中文文件名导致Pages部署连续失败；图片体积过大导致加载缓慢。</p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p4.solve">重构为单一样式表加顶部导航的布局；核对真实文件树后将图片统一整理到分类文件夹并改用简短文件名；缩短超长文件名使部署构建通过；最后将全站图片从约24MB压缩到约1.5MB，显著提升加载速度。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p4.solve">样式收敛为单一样式表，布局迭代为顶部语言切换栏加左侧目录栏；核对真实文件树后将图片统一整理到分类文件夹并改用简短文件名；缩短超长文件名使部署构建通过；最后将全站图片从约24MB压缩到约1.5MB，显著提升加载速度。</p></div>
         </article>
       </section>
 
