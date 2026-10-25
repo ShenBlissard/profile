@@ -5,9 +5,12 @@
 ## 项目结构
 
 ```
-├── index.html          # 首页
+├── index.html          # 首页（中英双语，data-i18n 标记）
 ├── css/
-│   └── style.css       # 样式文件（暖金色调，匹配首页背景图）
+│   └── style.css       # 样式文件（暖金色调，左侧目录栏 + 顶部语言切换）
+├── js/
+│   ├── i18n.js         # 中英词典与语言切换（跟随浏览器，localStorage 记忆）
+│   └── scroll-spy.js   # 目录滚动高亮
 └── img/
     ├── hero-bg.jpg     # 首页横幅背景图
     └── projects/       # 项目图片（stars / vote / course，已压缩优化）
