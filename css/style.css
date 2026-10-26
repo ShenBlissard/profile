@@ -307,6 +307,7 @@ article.project-group {
 .proj-row p {
   margin: 0;
   color: var(--text);
+  white-space: pre-line;
 }
 
 .proj-row a {

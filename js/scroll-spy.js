@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var ids = ['home', 'projects', 'project-stars', 'project-vote', 'project-course', 'project-site', 'hobbies'];
+  var ids = ['home', 'projects', 'project-stars', 'project-course', 'project-site', 'project-vote', 'hobbies'];
   var targets = [];
   ids.forEach(function (id) {
     var el = document.getElementById(id);

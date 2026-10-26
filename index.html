@@ -33,9 +33,9 @@
           <a href="#projects" data-i18n="nav.projects">项目作品</a>
           <ul class="sub-nav">
             <li><a href="#project-stars" data-i18n="sub.stars">星空堆栈</a></li>
-            <li><a href="#project-vote" data-i18n="sub.vote">班级投票</a></li>
             <li><a href="#project-course" data-i18n="sub.course">课件批注</a></li>
             <li><a href="#project-site" data-i18n="sub.site">自我介绍网页</a></li>
+            <li><a href="#project-vote" data-i18n="sub.vote">班级投票</a></li>
           </ul>
         </li>
         <li><a href="#hobbies" data-i18n="nav.hobbies">兴趣爱好</a></li>
@@ -58,51 +58,67 @@
           <div class="project-tags"><span data-i18n="tag.astro">天体摄影后期</span><span>opencode</span><span>Siril</span><span>Python</span></div>
           <div class="proj-row"><span class="label" data-i18n="lbl.result">项目成果</span><p data-i18n="p1.result">从多张噪声杂乱的raw原图出发，最终合成出银河清晰可见的成品图像。</p></div>
           <div class="proj-row"><span class="label" data-i18n="lbl.did">我做了什么</span><p data-i18n="p1.did">将数据整理为4个文件夹：lights存放初始照片，另外3个分别存放单独拍摄的不同类型噪声校准帧；之后用opencode调用Siril完成校准、叠加与拉伸，再用StarNet去星、scipy降噪与锐化、星点硬化，最后Screen无损合成。</p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p1.diff">raw原图中可以看出有很多杂乱的噪声信号，亮星暗星混杂，直接处理效果很差；单张成品tif文件高达121MB，超出GitHub单文件100MB的限制。</p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p1.solve">通过分类拍摄的校准帧进行堆栈叠加，有效抑制了噪声；将成品tif压缩为高质量jpg后再纳入版本管理。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p1.diff">困难1：一开始打算手动操作Siril完成后期处理，但安装的Siril里没有堆栈降噪脚本，网上也很难找到现成的，星空处理最关键的步骤无法实现；
+困难2：拍摄时没有使用赤道仪，相机没有跟随星星移动，lights里的几张原图星点位移严重，无法直接多张堆栈，手动处理后的图片依然噪点很多、效果不好；
+困难3：部分步骤人工操作不如程序自动判定，比如背景提取要尽量避免选到星星和星云，靠人肉眼识别既低效又不可靠。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p1.solve">解决1：让opencode和大模型在GitHub等社区参考类似的堆栈脚本模板，自己写了一个脚本，实现了在Siril里堆栈的功能；
+解决2：针对没有赤道仪导致的星点位移，又让opencode写脚本自动解决了无法多张堆栈的问题；
+解决3：把我的需求、处理照片的全部流程和注意事项都告诉opencode，让它自动编写脚本调用Siril，实现了全自动处理照片——例如背景提取改由程序自动判定：很小的区域过亮就不选，并用Siril里的星云数据匹配出照片中的星云，比人工选择更可靠。</p></div>
           <div class="gallery">
-            <figure><a href="img/projects/stars/stars-raw-preview.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-raw-preview-thumb.jpg" alt="light文件夹中raw格式原图的相机预览图" data-i18n-alt="p1.cap1" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap1">light文件夹中raw格式原图的相机预览</figcaption></figure>
-            <figure><a href="img/projects/stars/stars-raw-node.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-raw-node-thumb.jpg" alt="raw格式原图在电脑上的显示，可以看出有很多杂乱的信号" data-i18n-alt="p1.cap2" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap2">raw原图在电脑上的显示（可见大量杂乱信号）</figcaption></figure>
-            <figure><a href="img/projects/stars/stars-source-folders.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-source-folders.jpg" alt="包含初始照片数据的四个文件夹：lights放初始照片，其余三个存放不同类型的噪声校准帧" data-i18n-alt="p1.cap3" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap3">初始数据分四个文件夹：lights存初始照片，其余存各类噪声校准帧</figcaption></figure>
-            <figure><a href="img/projects/stars/stars-final.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-final-thumb.jpg" alt="最终成品图像：经过校准、叠加、拉伸、去星、降噪锐化与合成后，银河清晰可见" data-i18n-alt="p1.cap4" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap4">最终成品图像：银河清晰可见</figcaption></figure>
-          </div>
-        </article>
-
-        <article id="project-vote" class="project-group">
-          <h3 data-i18n="p2.title">2. 班级投票动态网页</h3>
-          <div class="project-tags"><span data-i18n="tag.dev">opencode开发</span><span data-i18n="tag.deploy-kimi">kimi部署</span><span data-i18n="tag.dynamic">动态网页</span></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.result">项目成果</span><p><span data-i18n="p2.result.pre">一个可用的班级投票系统，支持发起投票、实时投票和结果展示，在线访问：</span><a href="https://vote.kimi.site" target="_blank" rel="noopener">https://vote.kimi.site</a></p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.did">我做了什么</span><p data-i18n="p2.did">开发前先绘制了网页流程设计图，明确网页要显示什么、点哪里会跳转到哪里、有哪些功能；之后用opencode完成开发，并通过kimi部署上线。</p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p2.diff">动态网页涉及多个页面与状态跳转，直接动手写代码容易理不清结构。</p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p2.solve">先用流程图把页面结构与跳转关系画清楚，再按模块逐个实现功能，开发效率和完成度都有保障。</p></div>
-          <div class="gallery">
-            <figure><a href="img/projects/vote/vote-ui.jpg" target="_blank" rel="noopener"><img src="img/projects/vote/vote-ui-thumb.jpg" alt="班级投票系统发起投票界面" data-i18n-alt="p2.cap1" loading="lazy" decoding="async"></a><figcaption data-i18n="p2.cap1">发起投票界面</figcaption></figure>
-            <figure><a href="img/projects/vote/vote-flowchart.jpg" target="_blank" rel="noopener"><img src="img/projects/vote/vote-flowchart-thumb.jpg" alt="网页大致流程图：简要写了网页要显示什么，点哪里会跳转哪里，有什么功能" data-i18n-alt="p2.cap2" loading="lazy" decoding="async"></a><figcaption data-i18n="p2.cap2">网页流程设计图：显示内容、跳转位置与功能规划</figcaption></figure>
+            <figure><a href="img/projects/stars/stars-raw-preview.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-raw-preview-thumb.jpg" alt="light文件夹中raw格式原图的相机预览" data-i18n-alt="p1.cap1" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap1">light文件夹中raw格式原图的相机预览</figcaption></figure>
+            <figure><a href="img/projects/stars/stars-raw-node.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-raw-node-thumb.jpg" alt="raw原图在电脑上的显示（可见大量杂乱信号）" data-i18n-alt="p1.cap2" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap2">raw原图在电脑上的显示（可见大量杂乱信号）</figcaption></figure>
+            <figure><a href="img/projects/stars/stars-source-folders.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-source-folders.jpg" alt="初始数据分四个文件夹：lights存初始照片，其余存各类噪声校准帧" data-i18n-alt="p1.cap3" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap3">初始数据分四个文件夹：lights存初始照片，其余存各类噪声校准帧</figcaption></figure>
+            <figure><a href="img/projects/stars/stars-interim.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-interim-thumb.jpg" alt="阶段性成品图" data-i18n-alt="p1.cap4" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap4">阶段性成品图</figcaption></figure>
+            <figure><a href="img/projects/stars/stars-final.jpg" target="_blank" rel="noopener"><img src="img/projects/stars/stars-final-thumb.jpg" alt="最终成品图像：银河清晰可见" data-i18n-alt="p1.cap5" loading="lazy" decoding="async"></a><figcaption data-i18n="p1.cap5">最终成品图像：银河清晰可见</figcaption></figure>
           </div>
         </article>
 
         <article id="project-course" class="project-group">
-          <h3 data-i18n="p3.title">3. 课件批注</h3>
+          <h3 data-i18n="p2.title">2. 课件批注</h3>
           <div class="project-tags"><span>opencode</span><span data-i18n="tag.skill">自制skill</span><span>LLM</span></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.result">项目成果</span><p data-i18n="p3.result">通过opencode对blackboard上的讲义中的专业词汇进行中文标注并附加详细解释（详细解释由LLM主要根据ppt生成），共完成13个课件，批注版课件以网页文件形式呈现，原版课件保持不变。</p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.did">我做了什么</span><p data-i18n="p3.did">在opencode中沉淀出自制skill（pdf-glossary-annotate），让大模型按照skill中的规范读取课件并生成批注版网页课件；期间多次迭代优化skill和参考词汇表。</p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p3.diff">最初没找到合适的专业词汇标注方法；大模型在提取ppt中的专业名词时精度不足。</p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p3.solve">自行设计标注格式并封装成skill，每次生成批注后都让大模型总结经验持续完善skill；同时改了好几版参考词汇表，有参照之后专业名词的提取明显更精准。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.result">项目成果</span><p data-i18n="p2.result">通过opencode对blackboard上的讲义中的专业词汇进行中文标注并附加详细解释（详细解释由LLM主要根据ppt生成），共完成13个课件，批注版课件以网页文件形式呈现，原版课件保持不变。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.did">我做了什么</span><p data-i18n="p2.did">在opencode中沉淀出自制skill（pdf-glossary-annotate），让大模型按照skill中的规范读取课件并生成批注版网页课件；期间多次迭代优化skill和参考词汇表。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p2.diff">困难1：强模型提取PPT中专业词汇的精确度较高，但比较费钱；弱模型便宜，但提取专业名词的精度不足；
+困难2：想把网页版课件上的文字复制下来做笔记，却发现无法复制——整个网页文件输出的都是图片；
+困难3：实现文字复制后，又遇到一页左右是两个不同文本的情况，直接复制一边的文本会把另一边也一起复制进来。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p2.solve">解决1：先用强模型提取专业词汇，再由我人工审核，生成并改了好几版参考词汇表给弱模型做参考，有参照之后专业名词的提取明显更精准；
+解决2：让opencode把原版PDF中的文字提取出来，隐形地黏在网页文件的图片上，使文字可以复制；
+解决3：让opencode参考原版PPT中的文本框，在一页里划分出不同的文本区域，实现了精准复制。</p></div>
           <div class="gallery">
-            <figure><a href="img/projects/course/course-folder.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-folder.jpg" alt="文件夹截图：上面是从blackboard保存的原版课件，下面是用opencode生成的批注版课件网页文件" data-i18n-alt="p3.cap1" loading="lazy" decoding="async"></a><figcaption data-i18n="p3.cap1">文件夹截图：原版课件与生成的批注版课件</figcaption></figure>
-            <figure><a href="img/projects/course/course-annotated-translation-demo.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-annotated-translation-demo-thumb.jpg" alt="标注效果示意图：专业词汇下方显示中文翻译" data-i18n-alt="p3.cap2" loading="lazy" decoding="async"></a><figcaption data-i18n="p3.cap2">标注效果示意：专业词汇下方显示中文翻译</figcaption></figure>
-            <figure><a href="img/projects/course/course-skill-ui.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-skill-ui-thumb.jpg" alt="opencode界面：skill的生成与使用" data-i18n-alt="p3.cap3" loading="lazy" decoding="async"></a><figcaption data-i18n="p3.cap3">opencode界面：skill的生成与使用</figcaption></figure>
-            <figure><a href="img/projects/course/course-annotated-explain-demo.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-annotated-explain-demo-thumb.jpg" alt="标注效果示意图：点击专业词汇后屏幕中央弹出中文解释" data-i18n-alt="p3.cap4" loading="lazy" decoding="async"></a><figcaption data-i18n="p3.cap4">标注效果示意：点击专业词汇后屏幕中央弹出中文解释</figcaption></figure>
+            <figure><a href="img/projects/course/course-folder.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-folder.jpg" alt="文件夹截图：上面是从blackboard保存的原版课件，下面是用opencode生成的批注版课件网页文件" data-i18n-alt="p2.cap1" loading="lazy" decoding="async"></a><figcaption data-i18n="p2.cap1">文件夹截图：原版课件与生成的批注版课件</figcaption></figure>
+            <figure><a href="img/projects/course/course-annotated-translation-demo.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-annotated-translation-demo-thumb.jpg" alt="标注效果示意图：专业词汇下方显示中文翻译" data-i18n-alt="p2.cap2" loading="lazy" decoding="async"></a><figcaption data-i18n="p2.cap2">标注效果示意：专业词汇下方显示中文翻译</figcaption></figure>
+            <figure><a href="img/projects/course/course-skill-ui.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-skill-ui-thumb.jpg" alt="opencode界面：skill的生成与使用" data-i18n-alt="p2.cap3" loading="lazy" decoding="async"></a><figcaption data-i18n="p2.cap3">opencode界面：skill的生成与使用</figcaption></figure>
+            <figure><a href="img/projects/course/course-annotated-explain-demo.jpg" target="_blank" rel="noopener"><img src="img/projects/course/course-annotated-explain-demo-thumb.jpg" alt="标注效果示意图：点击专业词汇后屏幕中央弹出中文解释" data-i18n-alt="p2.cap4" loading="lazy" decoding="async"></a><figcaption data-i18n="p2.cap4">标注效果示意：点击专业词汇后屏幕中央弹出中文解释</figcaption></figure>
           </div>
         </article>
 
         <article id="project-site" class="project-group">
-          <h3 data-i18n="p4.title">4. 自我介绍静态网页</h3>
+          <h3 data-i18n="p3.title">3. 自我介绍静态网页</h3>
           <div class="project-tags"><span data-i18n="tag.dev">opencode开发</span><span data-i18n="tag.deploy-gh">GitHub部署</span><span>HTML/CSS</span></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.result">项目成果</span><p><span data-i18n="p4.result.pre">你现在看到的这个网站，在线访问：</span><a href="https://shenblissard.github.io/profile/" target="_blank" rel="noopener">https://shenblissard.github.io/profile/</a></p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.did">我做了什么</span><p data-i18n="p4.did">用opencode开发HTML/CSS/JS静态页面（含中英双语切换与目录滚动高亮），从零配置Git与SSH密钥，将项目推送到GitHub并启用GitHub Pages完成部署。</p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p4.diff">初版布局混乱（侧边栏挤压页脚、样式冲突）；图片引用路径与实际文件不符导致全部无法显示；一个长达547字节的中文文件名导致Pages部署连续失败；图片体积过大导致加载缓慢。</p></div>
-          <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p4.solve">样式收敛为单一样式表，布局迭代为顶部语言切换栏加左侧目录栏；核对真实文件树后将图片统一整理到分类文件夹并改用简短文件名；缩短超长文件名使部署构建通过；最后将全站图片从约24MB压缩到约1.5MB，显著提升加载速度。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.result">项目成果</span><p><span data-i18n="p3.result.pre">你现在看到的这个网站，</span><span data-i18n="p3.result.source">源代码：</span><a href="https://github.com/ShenBlissard/profile" target="_blank" rel="noopener">https://github.com/ShenBlissard/profile</a></p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.did">我做了什么</span><p data-i18n="p3.did">用opencode开发HTML/CSS/JS静态页面（含中英双语切换与目录滚动高亮），从零配置Git与SSH密钥，将项目推送到GitHub并启用GitHub Pages完成部署。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p3.diff">困难1：初期网页排版混乱，页面不美观；
+困难2：在本地做完网站后，部署到公网时没有服务器。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p3.solve">解决1：让opencode去GitHub上找自我介绍网页相关的skill，我再人工提意见迭代网页排版；
+解决2：发现GitHub免费提供服务器（GitHub Pages），我在本地安装Git并配置SSH密钥，把网页文件传到GitHub服务器上完成部署。</p></div>
+        </article>
+
+        <article id="project-vote" class="project-group">
+          <h3 data-i18n="p4.title">4. 班级投票动态网页</h3>
+          <div class="project-tags"><span data-i18n="tag.dev">opencode开发</span><span data-i18n="tag.deploy-kimi">kimi部署</span><span data-i18n="tag.dynamic">动态网页</span></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.result">项目成果</span><p><span data-i18n="p4.result.pre">一个可用的班级投票系统，支持发起投票、实时投票和结果展示，在线访问：</span><a href="https://vote.kimi.site" target="_blank" rel="noopener">https://vote.kimi.site</a><span data-i18n="p4.result.source">，源代码：</span><a href="https://github.com/ShenBlissard/vote" target="_blank" rel="noopener">https://github.com/ShenBlissard/vote</a></p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.did">我做了什么</span><p data-i18n="p4.did">开发前先绘制了网页流程设计图，明确网页要显示什么、点哪里会跳转到哪里、有哪些功能；之后用opencode完成开发，并通过kimi部署上线。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.diff">遇到的困难</span><p data-i18n="p4.diff">困难1：一开始设计的网页流程没有账号系统，链接一点进去就是管理投票界面——任何人拿到链接都能随意修改甚至删除投票，无法区分发起者和投票者，也难以防止重复投票；
+困难2：网页功能单一，比如引入投票人名单时只能一个一个手动输入，而且格式稍有不对就会导致导入出错；
+困难3：动态网页需要数据库，GitHub不向我提供数据库，我需要重新找服务器。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.solve">如何解决</span><p data-i18n="p4.solve">解决1：参考现有投票程序的流程，重新设计网页流程并修改代码；
+解决2：让身边的人体验我的投票网页，收集意见和bug，数次迭代网页功能、修复bug——比如增加了导入Word文档、Excel格式的名单，同时放宽格式要求，乱七八糟的格式导入进来也可以识别；
+解决3：把网页部署到kimi上。</p></div>
+          <div class="proj-row"><span class="label" data-i18n="lbl.advantage">网页优势</span><p data-i18n="p4.advantage">我身边的使用者发现网页不行了可以直接由我来维护；想要什么新功能直接跟我说就行，我可以自己加上。</p></div>
+          <div class="gallery">
+            <figure><a href="img/projects/vote/vote-ui.jpg" target="_blank" rel="noopener"><img src="img/projects/vote/vote-ui-thumb.jpg" alt="班级投票系统发起投票界面" data-i18n-alt="p4.cap1" loading="lazy" decoding="async"></a><figcaption data-i18n="p4.cap1">发起投票界面</figcaption></figure>
+            <figure><a href="img/projects/vote/vote-flowchart.jpg" target="_blank" rel="noopener"><img src="img/projects/vote/vote-flowchart-thumb.jpg" alt="网页大致流程图：简要写了网页要显示什么，点哪里会跳转哪里，有什么功能" data-i18n-alt="p4.cap2" loading="lazy" decoding="async"></a><figcaption data-i18n="p4.cap2">网页流程设计图：显示内容、跳转位置与功能规划</figcaption></figure>
+          </div>
         </article>
       </section>
 

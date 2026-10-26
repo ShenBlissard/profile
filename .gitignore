@@ -9,6 +9,10 @@ $RECYCLE.BIN/
 *.tmp
 *.bak
 
+# 大体积原始图像（超过 GitHub 100MB 限制，仅保留在本地）
+*.tif
+*.tiff
+
 # Python
 __pycache__/
 *.pyc
